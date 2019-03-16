@@ -4,10 +4,11 @@ Release date: 17-03-2019 (2019-03-17)
 Author: Nguyen Hieu Dien (nguyenhieudien@hotmail.com)
 Github: https://github.com/salingun/ddmodal
 Website: nguyenhieudien.com/ddmodal
+Document: nguyenhieudien.com/ddmodal/document.html
 Feature:
     - Create modal by element selector
     - Create modal by content of file
     - Create draggable modal
     - Customize UI of modal
 
-Thanks to use. Please specify the source if you copy it!
+Thanks for using. Please specify the source if you copy it!

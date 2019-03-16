@@ -2,23 +2,31 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
-  <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" /> -->
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
-  <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
-  <!-- DDModal -->
-  <link rel="stylesheet" href="css/ddmodal.css" />
-  <script src="js/ddmodal.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="DDModal The easiest way to create modal">
+    <meta name="author" content="Nguyen Hieu Dien">
+    <title>DDMODAL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <!-- JQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- JS Bootstrap-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- DDModal -->
+    <link rel="stylesheet" href="css/ddmodal.min.css" />
+    <script src="js/ddmodal.js"></script>
 </head>
 
 <body>
   <!-- Create a Modal with inside page content-->
-  <ddmodal id="myModal1" bttype="button" btlabel="Load tag inside" mdtitle="Load tag inside" mdinclude="#form1" resizeable></ddmodal>
+  <ddmodal id="myModal1" bttype="button" btlabel="Load tag inside" mdtitle="Load tag inside" mdinclude="#form1"></ddmodal>
   <!-- Create a Modal load content in another page-->
-  <ddmodal id="myModal2" bttype="link" btlabel="Load another file" mdtitle="Load another file" mdinclude="sample/content1.html" mdclass="modal-xl dd-header-info bg-success" draggable></ddmodal>
+  <ddmodal id="myModal2" bttype="link" btlabel="Load another file" mdtitle="Load another file" mdinclude="sample/content1.html" mdclass="modal-xl dd-header-info bg-success"></ddmodal>
   <!-- Create a Modal load content in a tag of another page-->
   <ddmodal id="myModal3" bttype="link" btlabel="Load tag outside" mdtitle="Load tag outside" mdinclude="sample/content2.html #form4" draggable></ddmodal>
 
