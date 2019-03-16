@@ -11,12 +11,14 @@
     <title>DDMODAL DOCUMENT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <!--CSS Fontawesome-->
+    <link rel="stylesheet" href="lib/fontawesome/css/all.min.css" />
     <!-- JQuery-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="lib/jquery/jquery-3.3.1.min.js"></script>
+    <script src="lib/jquery/jquery-ui.min.js"></script>
     <!-- JS Bootstrap-->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <!-- DDModal -->
     <link rel="stylesheet" href="css/ddmodal.min.css" />
     <script src="js/ddmodal.js"></script>
@@ -124,8 +126,8 @@
     &lt;script src="js/ddmodal.js"&gt;&lt;/script&gt;
                 </code></pre>
                 <p>DDModal được xây dựng trên nền tảng Jquery và Bootstrap nên để có thể sử dụng DDModal yêu cầu hệ
-                    thống phải được tích hợp Jquery và Bootstrap.
-                    Hiện tại DDModal hỗ trợ các phiên bản Jquery 1.x.x, 2.x.x, 3.x.x và Bootstrap 3 lẫn Bootstrap 4.
+                    thống phải được tích hợp Jquery, JqueryUI và Bootstrap.
+                    Hiện tại DDModal hỗ trợ các phiên bản Jquery 1.x.x, 2.x.x, 3.x.x, JqueryUI tương ứng với phiên bản Jquery và Bootstrap 3 lẫn Bootstrap 4.
                     Bạn có thể download các thư viện này và sử dụng nội bộ hoặc khai báo script trực tiếp đến đường link
                     như bên dưới: </p>
                 <p class="text-danger">Lưu ý: các thư viện Jquery và Bootstrap phải được khai báo trước DDModal trong
@@ -133,6 +135,7 @@
                 <pre class="alert alert-info"><code class="language-html container" data-lang="html">
     &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/&gt;
     &lt;script src="https://code.jquery.com/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"&gt;&lt;/script&gt;
     &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"&gt;&lt;/script&gt;
                 </code></pre>
                 <br />
@@ -639,14 +642,18 @@
         </div>
     </div>
     <script>
-        $(document).scroll(function() {
+        
+            $(document).scroll(function() {
             var y = $(this).scrollTop();
-            if (y > 450) {
-                $('#menu-list').css("padding-top", y);
-            } else {
-                $('#menu-list').css("padding-top", 0);
+            if($( window ).width() > 770){
+                if (y > 450) {
+                    $('#menu-list').css("padding-top", y);
+                } else {
+                    $('#menu-list').css("padding-top", 0);
+                }
             }
         });
+        
     </script>
 </body>
 
