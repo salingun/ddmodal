@@ -1,0 +1,13 @@
+Project name: DDModal
+Version: 1.0
+Release date: 17-03-2019 (2019-03-17)
+Author: Nguyen Hieu Dien (nguyenhieudien@hotmail.com)
+Github: 
+Website: nguyenhieudien.com/ddmodal
+Feature:
+    - Create modal by element selector
+    - Create modal by content of file
+    - Create draggable modal
+    - Customize UI of modal
+
+Thanks to use. Please specify the source if you copy it!

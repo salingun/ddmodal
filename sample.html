@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+  <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" /> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+  <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+  <!-- DDModal -->
+  <link rel="stylesheet" href="css/ddmodal.css" />
+  <script src="js/ddmodal.js"></script>
+</head>
+
+<body>
+  <!-- Create a Modal with inside page content-->
+  <ddmodal id="myModal1" bttype="button" btlabel="Load tag inside" mdtitle="Load tag inside" mdinclude="#form1" resizeable></ddmodal>
+  <!-- Create a Modal load content in another page-->
+  <ddmodal id="myModal2" bttype="link" btlabel="Load another file" mdtitle="Load another file" mdinclude="sample/content1.html" mdclass="modal-xl dd-header-info bg-success" draggable></ddmodal>
+  <!-- Create a Modal load content in a tag of another page-->
+  <ddmodal id="myModal3" bttype="link" btlabel="Load tag outside" mdtitle="Load tag outside" mdinclude="sample/content2.html #form4" draggable></ddmodal>
+
+  <form id="form1">
+      <div class="form-group">
+          <label for="recipient-name" class="control-label">Input:</label>
+          <input type="text" class="form-control" id="recipient-name">
+      </div>
+      <div class="form-group">
+          <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+  </form>
+
+</body>
+
+</html>

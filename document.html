@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DDMODAL DOCUMENT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    
+    <!-- DDModal -->
+    <link rel="stylesheet" href="css/ddmodal.min.css" />
+    <script src="js/ddmodal.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="menu-list" class="col-md-2">
+                <ul class="list-unstyled">
+                    <li><a href="/"><b>HOME</b></a></li>
+                    <li><a href="#header1">1.What's DDModal?</a></li>
+                    <li><a href="#header2">2. Vì sao sử dụng DDModal?</a></li>
+                    <li><a href="#header3">3. Get Started</a></li>
+                    <li><a href="#header4">4. Examples</a></li>
+                    <li><a href="#header5">5. Các thành phần chính</a>
+                        <ul>
+                            <li><a href="#header5-1">Button</a></li>
+                            <li><a href="#header5-2">Modal</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#header6">6. Draggable</a></li>
+                    <li><a href="#header7">7. Selector & cách định đường dẫn</a></li>
+                    <li><a href="#header8">8. UI Options</a></li>
+                        <ul>
+                            <li><a href="#header8-1">Button Class</a></li>
+                            <li><a href="#header8-2">Modal Color</a></li>
+                            <li><a href="#header8-3">Modal Size</a></li>
+                        </ul>
+                    <li><a href="#header9">9. Handle Error</a></li>
+                </ul>
+            </div>
+            <div class="col-md-10">
+                <h1 class="page-header text-center">DDModal Document</h1>
+                <h3 id="header1">1. What's DDModal?</h3>
+                <p>DDModal là một module đơn giản được sử dụng tích hợp vào trang web, project của bạn để tạo và quản lý
+                    các
+                    popup modal dễ dàng và tiện lợi. DDModal được phát triển bằng Javasript trên nền tảng Jquery và
+                    Bootstrap
+                    nên có thể dễ dàng tích hợp vào các project như một phần của frontend.</p>
+                <br />
+                <h3 id="header2">2. Vì sao sử dụng DDModal?</h3>
+                <p>Để dễ dàng hình dung về lợi ích của DDModal. Chúng ta sẽ xem qua cách để tạo một popup modal bằng
+                    code
+                    html
+                    thuần hoặc thậm chí là sử dụng Bootstrap. Chúng ta sẽ phải viết đoạn mã tương tự như dưới đây: </p>
+
+                <pre class="alert alert-info">
+                    <code class="language-html container" data-lang="html">
+    <span class="c">&lt;!-- Button trigger modal --&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span> <span class="na">data-target=</span><span class="s">"#exampleModal"</span><span class="nt">&gt;</span>
+        Launch demo modal
+    <span class="nt">&lt;/button&gt;</span>
+
+    <span class="c">&lt;!-- Modal --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal fade"</span> <span class="na">id=</span><span class="s">"exampleModal"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">aria-labelledby=</span><span class="s">"exampleModalLabel"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-dialog"</span> <span class="na">role=</span><span class="s">"document"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-header"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"modal-title"</span> <span class="na">id=</span><span class="s">"exampleModalLabel"</span><span class="nt">&gt;</span>Modal title<span class="nt">&lt;/h5&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-body"</span><span class="nt">&gt;</span>
+            ...
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+                </code>
+                </pre>
+                <p>Nếu trong page chúng ta cần dùng 10 popup modal thì chúng ta sẽ phải viết lại đoạn mã như vậy 10 lần
+                    với
+                    các nội dung modal-body khác nhau. Việc này không những khiến chúng ta phải viết lại cùng một code
+                    nhiều
+                    lần mà trong công tác bảo trì hoặc chỉnh sửa về sau cũng sẽ khiến chúng ta gặp không ít khó khăn với
+                    một
+                    page html có số lượng code rối ren.</p>
+                <p><i>Với DDModal thì mỗi popup modal chúng ta chỉ cần khai báo một dòng mã lệnh ở page để tái hiện:
+                    </i></p>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;ddmodal id="myModalSample" bttype="button" btlabel="Click Button" mdinclude="content.html"&gt;&lt;/ddmodal&gt;
+                </code></pre>
+                <p>Nội dung của modal-body sẽ được đặt trong thành phần được khai báo ở attribute mdinclude (trong ví dụ
+                    trên là page content.html). DDModal hỗ trợ việc include nội dung vào modal-body trực tiếp từ page
+                    hiện
+                    tại hoặc từ page khác, nhờ đó <i>khi sử dụng DDModal chúng ta có thể dễ dàng cấu trúc nội dung của
+                        popup modal
+                        theo từng file và lưu trữ trong thư mục riêng biệt.</i></p>
+                <pre class="alert alert-light"><code class="language-html container" data-lang="html">
+    yourpage/
+    ├── modal-body/
+    │   ├── bodyfile1.html
+    │   ├── bodyfile2.html
+    └── page-show-modal.html
+                </code></pre>
+                <br />
+                <h3 id="header3">3. Get Started</h3>
+                <p>Để có thể bắt đầu sử dụng DDModal bạn chỉ cần tải về source của DDModal tại đây, chép thư mục css và js của DDModal vào project của bạn, 
+                    sau đó khai báo ddmodal.css và ddmodal.js như bên dưới
+                    (Thay css/ddmodal.min.css và js/ddmodal.js bằng đường dẫn trên project của bạn): </p>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;link rel="stylesheet" href="css/ddmodal.css"/&gt;
+    &lt;script src="js/ddmodal.js"&gt;&lt;/script&gt;
+                </code></pre>
+                <p>DDModal được xây dựng trên nền tảng Jquery và Bootstrap nên để có thể sử dụng DDModal yêu cầu hệ
+                    thống phải được tích hợp Jquery và Bootstrap.
+                    Hiện tại DDModal hỗ trợ các phiên bản Jquery 1.x.x, 2.x.x, 3.x.x và Bootstrap 3 lẫn Bootstrap 4.
+                    Bạn có thể download các thư viện này và sử dụng nội bộ hoặc khai báo script trực tiếp đến đường link
+                    như bên dưới: </p>
+                <p class="text-danger">Lưu ý: các thư viện Jquery và Bootstrap phải được khai báo trước DDModal trong
+                    trang</p>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/&gt;
+    &lt;script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"&gt;&lt;/script&gt;
+                </code></pre>
+                <br />
+                <h3 id="header4">4. Examples</h3>
+                <b>DDModal với modal-body trong cùng trang: </b>
+                <p>Đây là dạng cơ bản và gần với code boostrap tạo modal nhất của DDModal. Ở dạng này bạn sẽ khai báo
+                    thẻ &lt;ddmodal&gt;
+                    và các thành phần của modal-body trong cùng một page, sau đó include nội dung của modal-body vào
+                    ddmodal bằng selector của thẻ. </p>
+                <ddmodal id="myModal1" bttype="button" btlabel="Try it now!" mdtitle="Load tag inside"
+                    mdinclude="#form1" resizeable></ddmodal>
+
+                <form id="form1">
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Input Form 1:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+                <br /><br />
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;!-- DDModal Tag --&gt;
+    &lt;ddmodal id="myModal1" bttype="button" btlabel="Load tag inside" mdinclude="#form1"&gt;&lt;/ddmodal&gt;
+
+    &lt;!-- Modal Body --&gt;
+    &lt;form id="form1"&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label for="recipient-name" class="control-label"&gt;Input Form 1:&lt;/label&gt;
+            &lt;input type="text" class="form-control" id="recipient-name"&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;button type="button" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+                </code></pre>
+                <b>DDModal với modal-body được load từ trang khác: </b>
+                <p>Ở dạng này trang index của chúng ta sẽ chỉ cần khai báo thẻ &lt;ddmodal&gt; còn nội dung của
+                    modal-body sẽ được đặt ở một trang khác
+                    và chúng ta sẽ định nghĩa cho DDModal biết nội dung cần lấy ở trang nào bằng cách đưa link của trang
+                    nội dung vào làm value của attribute mdinclude.</p>
+                <ddmodal id="myModal2" bttype="button" btlabel="Try it now!" mdtitle="Load anotherpage"
+                    mdinclude="sample/content1.html"></ddmodal>
+                <br /><br />
+                <i>index.html</i>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;!-- DDModal Tag --&gt;
+    &lt;ddmodal id="myModal2" bttype="button" btlabel="Load anotherpage" mdinclude="content1.html"&gt;&lt;/ddmodal&gt;
+                </code></pre>
+                <i>content1.html</i>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;!-- Modal Body --&gt;
+    &lt;form id="form2"&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label for="recipient-name" class="control-label"&gt;Input Anotherpage:&lt;/label&gt;
+            &lt;input type="text" class="form-control" id="recipient-name"&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;button type="button" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+                </code></pre>
+                <p><b>Lưu ý: </b>đường dẫn được include vào mdinclude sẽ được get từ thư mục root của trang web.
+                    Ví dụ: với trang web nguyenhieudien.com khi bạn nhập vào mdinclude giá trị là content.html thì
+                    DDModal sẽ nhận diện đó là nguyenhieudien.com/content.html,
+                    còn khi bạn nhập mypages/content.html thì sẽ là nguyenhieudien.com/mypages/content.html</p>
+                <b>DDModal với modal-body là thành phần của trang khác: </b>
+                <p>
+                    Với cách thức load toàn bộ nội dung một trang khác để dùng làm modal-body đã giúp chúng ta đơn giản
+                    hóa code ở giao diện hiển thị đi nhiều
+                    và dễ dàng cấu trúc file, chỉnh sửa các thành phần của một popup modal khi cần. Tuy nhiên nếu trường
+                    hợp chúng ta không mong muốn load
+                    toàn bộ trang cho modal-body hoặc muốn lưu nhiều nội dung của các popup modal khác nhau trong cùng
+                    một trang để tiện quản lý thì như thế nào?
+                </p>
+                <p>
+                    DDModal vẫn có thể giải quyết được chuyện này, DDModal cũng hỗ trợ cơ chế chỉ load một phần chuyên
+                    biệt trong một trang khác vào modal-body.
+                    Ở dạng này trong mdinclude chúng ta sẽ khai báo đồng thời đường link trang và selector của thành
+                    phần cần lấy cách nhau bởi ký tự khoảng trắng.
+                </p>
+                <p>
+                    Trong ví dụ bên dưới trang chứa Modal Body sẽ có 2 form là form3 và form4 chung ta sẽ tiến hành load
+                    form4 của trang vào modal-body trong trang index.html
+                </p>
+                <ddmodal id="myModal3" bttype="button" btlabel="Try it now!" mdtitle="Load anotherpage's tag"
+                    mdinclude="sample/content2.html #form4"></ddmodal>
+                <br /><br />
+                <i>index.html</i>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;!-- DDModal Tag --&gt;
+    &lt;ddmodal id="myModal2" bttype="button" btlabel="Load anotherpage" mdinclude="content2.html #form4"&gt;&lt;/ddmodal&gt;
+                </code></pre>
+                <i>content2.html</i>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;!-- Modal Body --&gt;
+    &lt;!-- Form 3 --&gt;
+    &lt;form id="form3"&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label for="recipient-name" class="control-label"&gt;Input Anotherpage Form 1:&lt;/label&gt;
+            &lt;input type="text" class="form-control" id="recipient-name"&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;button type="button" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;!-- Form 4 --&gt;
+    &lt;form id="form4"&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label for="recipient-name" class="control-label"&gt;Input Anotherpage Form 2:&lt;/label&gt;
+            &lt;input type="text" class="form-control" id="recipient-name"&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;button type="button" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+                </code></pre>
+                <br />
+                <h3 id="header5">5. Các thành phần chính</h3>
+                <p>Button và Modal popup là 2 thành phần chính của DDModal, trong thẻ &lt;ddmodal&gt; sẽ có chứa các attribute cho
+                        phép tùy biến 2 thành phần này. Chúng ta sẽ xem xét qua attribute của từng loại.</p>
+                <b id="header5-1">BUTTON</b>
+                <p>Các attribute của button trong ddmodal được bắt đầu bằng bt* bao gồm;</p>
+                <br/>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Attribute</th>
+                            <th scope="col">Kiểu giá trị</th>
+                            <th scope="col">Giải thích</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>id</td>
+                            <td>String</td>
+                            <td>id là attribute sẽ được sử dụng cho cả button lẫn modal, attr này sẽ quy định target của button và id của modal. 
+                                Nếu tạo nhiều DDModal trong cùng 1 trang id này không được trùng nhau</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>bttype</td>
+                            <td>String (link, button)</td>
+                            <td>Quy định kiểu của button. DDModal hỗ trợ 2 loại giao diện button, với giá trị link DDModal sẽ tạo nên thẻ &lt;a&gt; và button sẽ tạo thẻ &lt;button&gt;</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>btclick</td>
+                            <td>String</td>
+                            <td>Quy định href của thẻ &lt;a&gt; hoặc sự kiện onlick của thẻ &lt;button&gt;</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>btlabel</td>
+                            <td>String</td>
+                            <td>Nội dung hiển thị trên nút</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>btclass</td>
+                            <td>String</td>
+                            <td>Quy định các class cho nút. Về căn bản DDModal vẫn là Bootstrap nên bạn hoàn toàn có thể sử dụng các button class của Boostrap ở đây, hoặc bạn có thể thêm một class mới và tự định nghĩa chúng trong css</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Ngoài ra để tăng cường sự tùy biến cho button ddmodal cũng cho phép khai báo button trong một thẻ &lt;button&gt; riêng biệt.</p>
+                <p>Trong thẻ &lt;ddmodal&gt; nếu các attribute định nghĩa button bao gồm bttype, btclick, btlabel, btclass không được khai báo
+                     thì DDMODAL sẽ không tự tạo ra nút button như nút Try it now! thường thấy trong các ví dụ trên. Lúc này bạn có thể tự viết nút đó như một thẻ riêng lẻ. 
+                    Tất nhiên bạn vẫn phải tuân thủ các nguyên tắc tạo Modal của Bootstrap để đảm bảo button bạn tạo ra có thể tương tác với phần còn lại của DDModal.</p>
+                <p>Quan trọng nhất là &lt;button&gt; phải khai báo 2 attribute sau với giá trị tương ứng là: <b><i>data-toggle="modal" data-target="#id của ddmodal"</i></b>. 
+                    Giá trị của data-target phải tương ứng với giá trị attribute id của &lt;ddmodal&gt;</p>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;!-- Custom button --&gt;
+    &lt;button class="btn btn-success' data-toggle="modal" data-target="#myModal4"&gt;&lt;/button&gt;
+    &lt;!-- DDModal Tag --&gt;
+    &lt;ddmodal id="myModal4" mdinclude="content2.html #sample-content"&gt;&lt;/ddmodal&gt;
+                </code></pre>
+                <b id="header5-2">MODAL</b>
+                <p>Modal là thành phần chính của DDModal. Đối với button bạn có thể không khai báo trong thẻ &lt;ddmodal&gt; nhưng với modal thì nhất định phải có. 
+                    Các attribute của modal trong ddmodal được bắt đầu bằng md* bao gồm:
+                </p>    
+                <br/>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Attribute</th>
+                            <th scope="col">Kiểu giá trị</th>
+                            <th scope="col">Giải thích</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>id</td>
+                            <td>String</td>
+                            <td>id là attribute sẽ được sử dụng cho cả button lẫn modal, attr này sẽ quy định target của button và id của modal. 
+                                Nếu tạo nhiều DDModal trong cùng 1 trang id này không được trùng nhau
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>mdtitle</td>
+                            <td>String</td>
+                            <td>Quy định nội dung sẽ được hiển thị ở header của modal. 
+                                Nếu không khai báo attribute này hoặc set bằng một giá trị rỗng thì phần header của modal sẽ không xuất hiện</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>mdinclude</td>
+                            <td>String</td>
+                            <td>Quy định selector của thành phần được dùng làm nội dung cho modal hoặc đường dẫn đến file chứa nội dung cho modal. 
+                                Xem thêm Selector & cách định đường dẫn</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>mdclass</td>
+                            <td>String</td>
+                            <td>Quy định các class cho modal. Modal cũng sử dụng được các class của boostrap. 
+                                Đồng thời DDModal cũng tích hợp thêm các class md-header-* và md-body-*. Xem thêm UI Options</td>
+                        </tr>
+                    </tbody>
+                </table>    
+                <p>Với các attribute của modal thì id và mdinclude là bắt buột, nếu các attribute này không được khai báo thì ddmodal sẽ thông báo lỗi.</p>
+                <br/>
+                <h3 id="header6">6. Draggable</h3>
+                <p>DDModal hỗ trợ bạn đơn giản hóa việc tạo nên 1 popup modal có thể di chuyển trong trang như một cửa sổ windows (draggable). 
+                    Những việc bạn cần làm để setup chuyện này chỉ đơn giản là khai báo thêm một attribute có tên draggable trong thẻ &lt;ddmodal&gt;</p>
+                <ddmodal id="myModal4" bttype="button" btlabel="Try it now!" mdtitle="Draggable Modal"
+                    mdinclude="sample/content2.html #sample-content" draggable></ddmodal>
+                <br/><br/>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;!-- DDModal Draggable --&gt;
+    &lt;ddmodal id="myModal4" bttype="button" btlabel="Draggable Modal" 
+            mdtitle="Draggable Modal" mdinclude="content2.html #sample-content" draggable&gt;
+    &lt;/ddmodal&gt;
+                </code></pre>
+                <br/>
+                <h3 id="header7">7. Selector và cách định đường dẫn</h3>
+                <p>Attribute mdinclude của DDModal cho phép bạn định nghĩa selector của thành phần hoặc đường dẫn đến file nội dung sẽ được include vào nội dung của modal body. 
+                    Để sử dụng hiệu quả và đúng cách các attribute này bạn nên hiểu được cách DDModal sẽ đọc hiểu chúng.</p>
+                <b>MODAL</b>
+                <p>Đối với <b><i>Selector</i></b>. Khi phát triển DDModal tôi đã cố gắng để mã nguồn của nó có thể tận dụng tối đa cách định nghĩa <a href="https://www.w3schools.com/jquery/jquery_ref_selectors.asp">selector của Jquery</a>, 
+                    tôi nghĩ điều này sẽ tạo thuận tiện cho người sử dụng, giúp code trông có vẻ trực quan hơn, và tất nhiên giúp cho bạn không phải học thêm gì nếu đã biết về selector của Jquery.</p>
+                <p>Bạn hoàn toàn có thể khai báo selector ở dạng #id hoặc .class hoặc [element=value] và DDModal sẽ hiểu được điều này.
+                    Nhưng tôi recomment bạn nên dùng loại #id và id của từng modal trong cùng một trang nên khác nhau dù được include từ một trang khác để đảm bảo không xuất hiện các lỗi ngoài ý muốn</p>
+                <b>GÍA TRỊ ĐƯỜNG DẪN</b>
+                <p>Ngoài selector, thì mdinclude có thể chứa <b><i>Giá trị đường dẫn</i></b> đến file được include. Đường dẫn này được quy ước là sẽ tính từ thư mục root của trang web. 
+                    Có nghĩa là nếu như bạn khai báo giá trị "content.html" cho attribute mdinclude thì DDModal sẽ tự nhận diện đường dẫn yourdomain/content.html để lấy ra nội dung file này. 
+                    Ví dụ domain của bạn là <i>localhost:8080/mypage</i> thì DDModal sẽ render ra đường dẫn là <i>localhost:8080/mypage/content.html</i></p>
+                <p>Nếu bạn thắc mắc tại sao lại quy ước như vậy thì lý do là để DDModal có thể tích hợp trong mọi hệ thống và mọi nơi trong hệ thống. 
+                    Vì có những công nghệ sẽ định nghĩa giá trị cho đường dẫn khác nhau và hơn hết tôi không thể biết được bạn sẽ đặt DDModal vào thư mục nào trong hệ thống của bạn.</p>
+                <p>Tuy nhiên, DDModal hướng đến sự customize tối đa cho người sử dụng nên giá trị root của website hoàn toàn dễ dàng thay đổi nếu bạn muốn. 
+                    Tôi đặt giá trị này là một costant tên <b>ROOTPATH</b> trong ddmodal.js, bạn hoàn toàn có thể mở ddmodal.js ra và sửa ngay thành giá trị bạn mong muốn một cách dễ dàng và nhanh chóng, 
+                    theo luồng xử lý thì khi DDModal gọi đến file nó sẽ gọi đến đường dẫn có giá trị là ROOTPATH + Giá trị của mdinclude. 
+                    Việc cho phép dễ dàng thay đổi ROOTPATH có thể sẽ giúp bạn tránh được các lỗi do config url đặc biệt trong hệ thống bạn và thậm chí giúp bạn có thể khai báo cho DDModal đọc được file từ một địa chỉ bên ngoài.</p>
+                <p>Hiện tại DDModal sẽ đọc được url các file có định dạng <b><i>html, xhtml, xml, php, txt, asp, jsp, csp, wml</i></b> và giống như ROOTPATH bạn có thể mở rộng các định dạng này bằng cách chỉnh sửa giá trị của <b>FILEFORMAT</b> trong ddmodal.js</p>
+                <br/>
+                <h3 id="header8">8. UI Options</h3>
+                <p>Về cơ bản khi khai báo một thẻ &lt;ddmodal&gt; hệ thống sẽ tự render lên một Modal với nội dung các thẻ tương tự như Modal của Boostrap:</p>
+                <pre class="alert alert-info">
+                        <code class="language-html container" data-lang="html">
+        <span class="c">&lt;!-- Button trigger modal --&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span> <span class="na">data-target=</span><span class="s">"#exampleModal"</span><span class="nt">&gt;</span>
+            Launch demo modal
+        <span class="nt">&lt;/button&gt;</span>
+    
+        <span class="c">&lt;!-- Modal --&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal fade"</span> <span class="na">id=</span><span class="s">"exampleModal"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">aria-labelledby=</span><span class="s">"exampleModalLabel"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-dialog"</span> <span class="na">role=</span><span class="s">"document"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-header"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"modal-title"</span> <span class="na">id=</span><span class="s">"exampleModalLabel"</span><span class="nt">&gt;</span>Modal title<span class="nt">&lt;/h5&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-body"</span><span class="nt">&gt;</span>
+                ...
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+                    </code>
+                </pre>
+                <p>Vì vậy, bạn có thể dùng các class của Boostrap để custom giao diện của DDModal. Có 2 attribute trong ddmodal để bạn định nghĩa class là btclass và mdclass. 
+                DDModal quy ước các giá trị đưa vào 2 attribute này sẽ được hiểu như sau:</p>
+                <b id="header8-1">BUTTON CLASS</b>
+                <p>Với các class được đưa vào btclass thì DDModal sẽ đưa các class này vào class của thẻ &lt;button&gt; trên giao diện. 
+                    Ví dụ: Khi bạn khai báo btclass="btn-success btn-lg" thì DDModal sẽ đem vào thẻ class của thẻ button thành &lt;button class="btn btn-success btn-lg"&gt;</p>
+                <ddmodal id="myModal5-1" bttype="button" btlabel="Large Button" btclass="btn-success btn-lg"
+                 mdtitle="Customs Button UI" mdinclude="sample/content2.html #sample-content" draggable></ddmodal>
+                <ddmodal id="myModal5-2" bttype="button" btlabel="Medium Button" btclass="btn-warning"
+                 mdtitle="Customs Button UI" mdinclude="sample/content2.html #sample-content" draggable></ddmodal>
+                 <ddmodal id="myModal5-3" bttype="button" btlabel="Small Button" btclass="btn-danger btn-sm"
+                 mdtitle="Customs Button UI" mdinclude="sample/content2.html #sample-content" draggable></ddmodal>
+                <br/><br/>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;!-- Customs Button UI --&gt;
+    &lt;ddmodal id="myModal5-1" bttype="button" btlabel="Customs Button UI" btclass="btn-success btn-lg" 
+            mdtitle="Customs Button UI" mdinclude="content2.html #sample-content" draggable&gt;
+    &lt;ddmodal id="myModal5-2" bttype="button" btlabel="Customs Button UI" btclass="btn-warning btn-lg" 
+            mdtitle="Customs Button UI" mdinclude="content2.html #sample-content" draggable&gt;
+    &lt;ddmodal id="myModal5-3" bttype="button" btlabel="Customs Button UI" btclass="btn-danger btn-sm" 
+            mdtitle="Customs Button UI" mdinclude="content2.html #sample-content" draggable&gt;
+    &lt;/ddmodal&gt;
+                </code></pre>
+                <p>Xem thêm Document về Button của Bootstrap để áp dụng: <a href="https://getbootstrap.com/docs/4.3/components/buttons/">Boostrap Button Document</a></p>
+                <br/>
+                <b>MODAL CLASS</b>
+                <p>Với các class được đưa vào mdclass thì DDModal sẽ chia làm 3 loại:</p>
+                <ul>
+                    <li>Các class có tên mở đầu là md-header thì DDModal sẽ thêm vào class của thẻ div có class là modal-header để định nghĩa phần header của modal</li>
+                    <li>Các class có tên mở đầu là md-body thì DDModal sẽ thêm vào class của thẻ div có class là modal-body để định nghĩa phần body của modal</li>
+                    <li>Các class không thuộc 2 dạng ở trên DDModal sẽ thêm vào class của thẻ div có class modal-dialog để dùng cho các định nghĩa UI cho toàn bộ nội dung modal</li>
+                </ul>
+                <b id="header8-2">MODAL COLOR</b>
+                <p>Với các class mở đầu md-header và md-body DDModal định nghĩa thêm các class để thay đổi màu sắc như sau</p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tên class header</th>
+                            <th scope="col">Tên class body</th>
+                            <th scope="col">Màu sẽ hiển thị</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>md-header-primary</td>
+                            <td>md-body-primary</td>
+                            <td class="bg-primary"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>md-header-secondary</td>
+                            <td>md-body-secondary</td>
+                            <td class="bg-secondary"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>md-header-success</td>
+                            <td>md-body-success</td>
+                            <td class="bg-success"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>md-header-danger</td>
+                            <td>md-body-danger</td>
+                            <td class="bg-danger"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>md-header-warning</td>
+                            <td>md-body-warning</td>
+                            <td class="bg-warning"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>md-header-info</td>
+                            <td>md-body-info</td>
+                            <td class="bg-info"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">7</th>
+                            <td>md-header-light</td>
+                            <td>md-body-light</td>
+                            <td class="bg-light"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">8</th>
+                            <td>md-header-dark</td>
+                            <td>md-body-dark</td>
+                            <td class="bg-dark"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">9</th>
+                            <td>md-header-white</td>
+                            <td>md-body-white</td>
+                            <td class="bg-white"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10</th>
+                            <td>md-header-transparent</td>
+                            <td>md-body-transparent</td>
+                            <td class="bg-transparent"></td>
+                        </tr>
+                    </tbody>
+                </table>    
+                <p>Ví dụ:</p>
+                <ddmodal id="myModal6" btlabel="Primary" btclass="btn-primary"
+                mdtitle="Primary Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-primary"></ddmodal>
+                <ddmodal id="myModal7" btlabel="Secondary" btclass="btn-secondary"
+                mdtitle="Secondary Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-secondary"></ddmodal>
+                <ddmodal id="myModal8" btlabel="Success" btclass="btn-success"
+                mdtitle="Success Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-success"></ddmodal>
+                <ddmodal id="myModal9" btlabel="Danger" btclass="btn-danger"
+                mdtitle="Danger Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-danger"></ddmodal>
+                <ddmodal id="myModal10" btlabel="Warning" btclass="btn-warning"
+                mdtitle="Warning Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-warning"></ddmodal>
+                <ddmodal id="myModal11" btlabel="Info" btclass="btn-info"
+                mdtitle="Info Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-info"></ddmodal>
+                <ddmodal id="myModal12" btlabel="Dark" btclass="btn-dark"
+                mdtitle="Dark Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-dark"></ddmodal>
+                <br/><br/>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;!-- Primary --&gt;
+    &lt;ddmodal id="myModal6" btlabel="Primary" btclass="btn-primary"
+    mdtitle="Primary Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-primary"&gt;&lt;/ddmodal&gt;
+    &lt;!-- Secondary --&gt;
+    &lt;ddmodal id="myModal7" btlabel="Secondary" btclass="btn-secondary"
+    mdtitle="Secondary Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-secondary"&gt;&lt;/ddmodal&gt;
+    &lt;!-- Success --&gt;
+    &lt;ddmodal id="myModal8" btlabel="Success" btclass="btn-success"
+    mdtitle="Success Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-success"&gt;&lt;/ddmodal&gt;
+    &lt;!-- Danger --&gt;
+    &lt;ddmodal id="myModal9" btlabel="Danger" btclass="btn-danger"
+    mdtitle="Danger Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-danger"&gt;&lt;/ddmodal&gt;
+    &lt;!-- Warning --&gt;
+    &lt;ddmodal id="myModal10" btlabel="Warning" btclass="btn-warning"
+    mdtitle="Warning Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-warning"&gt;&lt;/ddmodal&gt;
+    &lt;!-- Info --&gt;
+    &lt;ddmodal id="myModal11" btlabel="Info" btclass="btn-info"
+    mdtitle="Info Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-info"&gt;&lt;/ddmodal&gt;
+    &lt;!-- Dark --&gt;
+    &lt;ddmodal id="myModal12" btlabel="Dark" btclass="btn-dark"
+    mdtitle="Dark Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-dark"&gt;&lt;/ddmodal&gt;               
+                </code></pre>
+                <p>
+                    Ngoài các class trên bạn có thể tự định nghĩa class của riêng mình chỉ cần đặt tên theo đúng quy ước <b><i>md-header-tênclass</i></b> hoặc <b><i>md-body-tênclass</i></b> và đưa vào mdclass thì DDModal sẽ tự động hiểu và đưa class vào đúng vị trí của nó.
+                </p>
+                <br/>
+                <b id="header8-3">MODAL SIZE</b>
+                <p>Bạn có thể thay đổi kích thước của Modal bằng cách sử dụng các class định nghĩa size cho .modal-dialog của Bootstrap.</p>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                        <th>Size</th>
+                        <th>Class</th>
+                        <th>Modal max-width</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>Small</td>
+                        <td>modal-sm</td>
+                        <td>300px</code></td>
+                        </tr>
+                        <tr>
+                        <td>Default</td>
+                        <td class="text-muted">None</td>
+                        <td>500px</td>
+                        </tr>
+                        <tr>
+                        <td>Large</td>
+                        <td>modal-lg</td>
+                        <td>800px</td>
+                        </tr>
+                        <tr>
+                        <td>Extra large</td>
+                        <td>modal-xl</td>
+                        <td>1140px</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Ví dụ</p>
+                <ddmodal id="myModal13" btlabel="Extra large modal" mdtitle="Extra large modal" mdinclude="sample/content2.html #sample-content" mdclass="modal-xl"></ddmodal>
+                <ddmodal id="myModal14" btlabel="Large modal" mdtitle="Large modal" mdinclude="sample/content2.html #sample-content" mdclass="modal-lg"></ddmodal>
+                <ddmodal id="myModal15" btlabel="Small modal" mdtitle="Small modal" mdinclude="sample/content2.html #sample-content" mdclass="modal-sm"></ddmodal>
+                <br/><br/>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;ddmodal id="myModal13" btlabel="Extra large modal" mdtitle="Extra large modal" mdinclude="sample/content2.html #sample-content" mdclass="modal-xl"&gt;&lt;/ddmodal&gt;
+    &lt;ddmodal id="myModal14" btlabel="Large modal" mdtitle="Large modal" mdinclude="sample/content2.html #sample-content" mdclass="modal-lg"&gt;&lt;/ddmodal&gt;
+    &lt;ddmodal id="myModal15" btlabel="Small modal" mdtitle="Small modal" mdinclude="sample/content2.html #sample-content" mdclass="modal-sm"&gt;&lt;/ddmodal&gt;   
+                </code></pre>
+                <br/>
+                <h3 id="header9">9. Handle Error</h3>
+                <p>Mục này sẽ mô tả một số lỗi thường gặp để các bạn dễ dàng khắc phục khi gặp phải.</p>
+                <b>ERROR WHEN LOAD ELEMENT SELECTOR</b>
+                <p>Nếu gặp lỗi ERROR WHEN LOAD ELEMENT SELECTOR thì có khả năng là selector được khai báo trong mdinclude không tồn tại, hãy kiểm tra lại giá trị này.</p>
+                <b>ERROR WHEN LOAD URL: 404 Not Found</b>
+                <p>Nếu gặp lỗi ERROR WHEN LOAD URL: 404 Not Found thì có khả năng là đưởng dẫn được khai báo trong mdinclude sai, hãy kiểm tra lại giá trị này và ROOTPATH có chính xác chưa. 
+                    Xem thêm phần Cách định giá trị đường dẫn.
+                </p>
+                <b>ERROR WHEN LOAD ELEMENT IN URL</b>
+                <p>Thường lỗi này chỉ xuất hiện trong trường hợp load một thành phần từ page khác cho modal content. 
+                    Nếu gặp lỗi ERROR WHEN LOAD ELEMENT IN URL thì có khả năng đường dẫn đến trang khác hoặc selector đến thành phần của trang khác trong mdinclude sai, 
+                    hãy kiểm tra lại giá trị này. Xem thêm phần Cách định giá trị đường dẫn.
+                </p>
+                <b>Lỗi nội dung của Modal hiển thị không chính xác hoặc có hiện tượng chèn lắp nội dung</b>
+                <p>Nếu gặp lỗi như trên thì khả năng cao là bạn đang khai báo mdinclude sai giá trị hoặc thành phần mà mdinclude đang truy vấn tới bị trùng (có nhiều thành phần có cùng id, class trong cùng trang), 
+                    hoặc có thể giá trị của attribute id của thẻ &lt;ddmodal&gt; đang bị trùng (có nhiều thẻ &lt;ddmodal&gt; có cùng id trên 1 trang), hãy kiểm tra lại chính xác các vấn đề này!
+                </p>
+                
+                <div style="text-align: right">
+                    <p><i>@DDModal</i></p>
+                    <p><i>nguyenhieudien@hotmail.com</i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).scroll(function() {
+            var y = $(this).scrollTop();
+            if (y > 450) {
+                $('#menu-list').css("padding-top", y);
+            } else {
+                $('#menu-list').css("padding-top", 0);
+            }
+        });
+    </script>
+</body>
+
+</html>
