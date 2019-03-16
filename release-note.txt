@@ -2,7 +2,7 @@ Project name: DDModal
 Version: 1.0
 Release date: 17-03-2019 (2019-03-17)
 Author: Nguyen Hieu Dien (nguyenhieudien@hotmail.com)
-Github: 
+Github: https://github.com/salingun/ddmodal
 Website: nguyenhieudien.com/ddmodal
 Feature:
     - Create modal by element selector
