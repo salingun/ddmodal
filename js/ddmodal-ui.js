@@ -1,7 +1,7 @@
 /*!
   * DDModal v1.0
   * Author: Nguyen Hieu Dien (nguyenhieudien@hotmail.com)
-  * nguyenhieudien.com
+  * nguyenhieudien.com/ddmodal
   */
 function UISet(ddmodalid,resizable,draggable) {
   if(resizable != null){
