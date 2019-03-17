@@ -16,50 +16,48 @@ const ERR_URLELEMENTLOAD = "ERROR WHEN LOAD ELEMENT IN URL";
  * Get request in ddmodal html tag and process it to create ddmodal
  */
 var DDModal = function () {
-    var tags, xhttp;
     var bttarget, bttype, btclick, btlabel, btclass, mdid, mdtitle, mdinclude, mdclass, resizable, draggable;
     var error = ""; var ddmodal = "";
 
-    tags = document.getElementsByTagName("*");
-
-    for (let i = 0; i < tags.length; i++) {
-        ddmodaltag = tags[i];
+    let tags = document.getElementsByTagName("ddmodal");
+    
+    while (tags.length > 0) {
+        ddmodaltag = tags[0];
         bttarget = bttype = btclick = btlabel = btclass = mdid = mdtitle = mdinclude = mdclass = "";
-        if ((tags[i].tagName).toUpperCase() === "DDMODAL") {
-            //button
-            bttarget = ddmodaltag.getAttribute('id') ? ddmodaltag.getAttribute('id') : "";
-            bttype = ddmodaltag.getAttribute('bttype') ? ddmodaltag.getAttribute('bttype') : "";
-            btclick = ddmodaltag.getAttribute('btclick') ? ddmodaltag.getAttribute('btclick') : "#";
-            btlabel = ddmodaltag.getAttribute('btlabel') ? ddmodaltag.getAttribute('btlabel') : "";
-            btclass = ddmodaltag.getAttribute('btclass') ? ddmodaltag.getAttribute('btclass') : "";
+        
+        //button
+        bttarget = ddmodaltag.getAttribute('id') ? ddmodaltag.getAttribute('id') : "";
+        bttype = ddmodaltag.getAttribute('bttype') ? ddmodaltag.getAttribute('bttype') : "";
+        btclick = ddmodaltag.getAttribute('btclick') ? ddmodaltag.getAttribute('btclick') : "#";
+        btlabel = ddmodaltag.getAttribute('btlabel') ? ddmodaltag.getAttribute('btlabel') : "";
+        btclass = ddmodaltag.getAttribute('btclass') ? ddmodaltag.getAttribute('btclass') : "";
 
-            //modal
-            mdid = ddmodaltag.getAttribute('id') ? ddmodaltag.getAttribute('id') : "";
-            mdtitle = ddmodaltag.getAttribute('mdtitle') ? ddmodaltag.getAttribute('mdtitle') : "";
-            mdinclude = ddmodaltag.getAttribute('mdinclude') ? ddmodaltag.getAttribute('mdinclude') : "";
-            mdclass = ddmodaltag.getAttribute('mdclass') ? ddmodaltag.getAttribute('mdclass') : "";
+        //modal
+        mdid = ddmodaltag.getAttribute('id') ? ddmodaltag.getAttribute('id') : "";
+        mdtitle = ddmodaltag.getAttribute('mdtitle') ? ddmodaltag.getAttribute('mdtitle') : "";
+        mdinclude = ddmodaltag.getAttribute('mdinclude') ? ddmodaltag.getAttribute('mdinclude') : "";
+        mdclass = ddmodaltag.getAttribute('mdclass') ? ddmodaltag.getAttribute('mdclass') : "";
 
-            //ui
-            resizable = ddmodaltag.getAttribute('resizable');
-            draggable = ddmodaltag.getAttribute('draggable');
+        //ui
+        resizable = ddmodaltag.getAttribute('resizable');
+        draggable = ddmodaltag.getAttribute('draggable');
 
-            if (mdid === ""){
-                error += "Attribute id is require! ";
-            }
-            if (mdinclude === ""){
-                error += "Attribute mdinclude is require! ";
-            }
-
-            if (error === ""){
-                ddmodal = createModal(bttarget, bttype, btclick, btlabel, btclass,
-                    mdid, mdtitle, mdinclude, mdclass,
-                    resizable, draggable);
-            } else {
-                ddmodal = error;
-            }
-            ddmodaltag.outerHTML = ddmodal;
-            UISet("#" + mdid, resizable, draggable);
+        if (mdid === ""){
+            error += "Attribute id is require! ";
         }
+        if (mdinclude === ""){
+            error += "Attribute mdinclude is require! ";
+        }
+
+        if (error === ""){
+            ddmodal = createModal(bttarget, bttype, btclick, btlabel, btclass,
+                mdid, mdtitle, mdinclude, mdclass,
+                resizable, draggable);
+        } else {
+            ddmodal = error;
+        }
+        ddmodaltag.outerHTML = ddmodal;
+        UISet("#" + mdid, resizable, draggable);
     }
 }
 
