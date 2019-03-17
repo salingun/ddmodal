@@ -28,7 +28,7 @@ var DDModal = function () {
         //button
         bttarget = ddmodaltag.getAttribute('id') ? ddmodaltag.getAttribute('id') : "";
         bttype = ddmodaltag.getAttribute('bttype') ? ddmodaltag.getAttribute('bttype') : "";
-        btclick = ddmodaltag.getAttribute('btclick') ? ddmodaltag.getAttribute('btclick') : "#";
+        btclick = ddmodaltag.getAttribute('btclick') ? ddmodaltag.getAttribute('btclick') : "";
         btlabel = ddmodaltag.getAttribute('btlabel') ? ddmodaltag.getAttribute('btlabel') : "";
         btclass = ddmodaltag.getAttribute('btclass') ? ddmodaltag.getAttribute('btclass') : "";
 
@@ -81,7 +81,7 @@ function createModal(bttarget, bttype, btclick, btlabel, btclass, mdid, mdtitle,
     var modalButton = "";
     var modalForm = "";
 
-    if (bttype || btclick !== "#" || btlabel || btclass) {
+    if (bttype || btclick || btlabel || btclass) {
         modalButton = ModalButton(bttarget, bttype, btclick, btlabel, btclass);
         ddmodal += modalButton;
     }
