@@ -28,7 +28,7 @@ var DDModal = function () {
         //button
         bttarget = ddmodaltag.getAttribute('id') ? ddmodaltag.getAttribute('id') : "";
         bttype = ddmodaltag.getAttribute('bttype') ? ddmodaltag.getAttribute('bttype') : "";
-        btclick = ddmodaltag.getAttribute('btclick') ? ddmodaltag.getAttribute('btclick') : "#";
+        btclick = ddmodaltag.getAttribute('btclick') ? ddmodaltag.getAttribute('btclick') : "";
         btlabel = ddmodaltag.getAttribute('btlabel') ? ddmodaltag.getAttribute('btlabel') : "";
         btclass = ddmodaltag.getAttribute('btclass') ? ddmodaltag.getAttribute('btclass') : "";
 
@@ -88,7 +88,7 @@ function createModal(bttarget, bttype, btclick, btlabel, btclass, mdid, mdtitle,
 
     //check content of modal in current file or annother file
     var modalaction = "loadtag";
-    FILEFORMAT.forEach(element => {
+    FILEFORMAT.forEach(function(element) {
         if (mdinclude.indexOf(element) !== -1) {
             modalaction = "loadfile";
             return false;
@@ -257,7 +257,7 @@ function splitMDClass (mdclass){
     mdclassresult['bodyclass'] = "";
     mdclassresult['modalclass'] = "";
     var mdclassarr = mdclass.split(" ");
-    mdclassarr.forEach(element => {
+    mdclassarr.forEach(function(element) {
         if(element.indexOf("md-header") !== -1){
             mdclassresult['headerclass'] += " "+element;
         } else if (element.indexOf("md-body") !== -1){

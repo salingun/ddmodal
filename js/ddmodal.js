@@ -18,7 +18,7 @@ var jsfile = [
   "ddmodal-const.min.js",
 ];
 
-jsfile.forEach(element => {
+jsfile.forEach(function(element) {
   var imported = document.createElement('script');
   imported.src = path+element;
   document.head.appendChild(imported);
