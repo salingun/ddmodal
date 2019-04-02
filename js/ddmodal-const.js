@@ -1,5 +1,5 @@
 /*!
-  * DDModal v1.0
+  * DDModal
   * Author: Nguyen Hieu Dien (nguyenhieudien@hotmail.com)
   * nguyenhieudien.com/ddmodal
   */

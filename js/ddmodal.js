@@ -1,5 +1,5 @@
 /*!
-  * DDModal v1.0
+  * DDModal
   * Author: Nguyen Hieu Dien (nguyenhieudien@hotmail.com)
   * nguyenhieudien.com/ddmodal
   */
@@ -9,20 +9,30 @@ const ROOTPATH = getRootWebSitePath();
 const FILEFORMAT = [".html",".xhtml",".xml",".php",".txt",".asp",".aspx",".jsp",".csp",".wml"];
 
 //get path in your website
-var script = document.currentScript.src;
+var script = document.getElementsByTagName("script");
+script = script[script.length - 1].src;
 var path = script.substring(0,script.lastIndexOf("/")+1);
 
-//import DDModal UI setting and DDModal Constructor to use in your page
-var jsfile = [
-  "ddmodal-ui.min.js",
-  "ddmodal-const.min.js",
-];
-
-jsfile.forEach(function(element) {
-  var imported = document.createElement('script');
-  imported.src = path+element;
-  document.head.appendChild(imported);
+$(document).ready(function () {
+  importDDModalConst();
 });
+
+/**
+ * Function use to import ddmodal constructor and ddmodal UI settings
+ */
+function importDDModalConst(){
+  //import DDModal UI setting and DDModal Constructor to use in your page
+  var jsfile = [
+    "ddmodal-ui.js",
+    "ddmodal-const.js",
+  ];
+
+  jsfile.forEach(function(element) {
+    var imported = document.createElement('script');
+    imported.src = path+element;
+    document.head.appendChild(imported);
+  });
+}
 
 /**
  * Function use to get Root path of website
