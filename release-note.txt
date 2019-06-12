@@ -5,7 +5,7 @@ Website: nguyenhieudien.com/ddmodal
 Document: nguyenhieudien.com/ddmodal/document.html
 
 Version: 1.5
-Release date: 14-06-2019 (2019-04-02)
+Release date: 14-06-2019 (2019-06-14)
 New Features:
 	- Improve performance workflow to load modal content faster
 	- New way for users set configs value
