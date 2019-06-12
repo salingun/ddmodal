@@ -3,6 +3,14 @@ Xem thêm: http://nguyenhieudien.com/ddmodal
 
 **Realse versions:**
 
+Version: 1.5
+Release date: 14-06-2019 (2019-04-02)
+New Features:
+	- Improve performance workflow to load modal content faster
+	- New way for users set configs value
+	- Merge ddmodal file to one file, change construct of lib
+	- Fix DDModal bug: inject with another js libs
+
 Version: 1.1
 Release date: 02-04-2019 (2019-04-02)
 New Features:
