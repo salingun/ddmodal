@@ -41,7 +41,7 @@
                         </ul>
                     </li>
                     <li><a href="#header6">6. Draggable</a></li>
-                    <li><a href="#header7">7. Selector & cách định đường dẫn</a></li>
+                    <li><a href="#header7">7. Custom Configs</a></li>
                     <li><a href="#header8">8. UI Options</a></li>
                         <ul>
                             <li><a href="#header8-1">Button Class</a></li>
@@ -119,11 +119,11 @@
                 <br />
                 <h3 id="header3">3. Get Started</h3>
                 <p>Để có thể bắt đầu sử dụng DDModal bạn chỉ cần tải về <a href="./">DDModal tại đây</a>, chép thư mục css và js của DDModal vào project của bạn, 
-                    sau đó khai báo ddmodal.min.css và ddmodal.js như bên dưới
-                    (Thay css/ddmodal.min.css và js/ddmodal.js bằng đường dẫn trên project của bạn): </p>
+                    sau đó khai báo ddmodal.min.css và ddmodal.min.js như bên dưới
+                    (Thay css/ddmodal.min.css và js/ddmodal.min.js bằng đường dẫn trên project của bạn): </p>
                 <pre class="alert alert-info"><code class="language-html container" data-lang="html">
     &lt;link rel="stylesheet" href="css/ddmodal.min.css"/&gt;
-    &lt;script src="js/ddmodal.js"&gt;&lt;/script&gt;
+    &lt;script src="js/ddmodal.min.js"&gt;&lt;/script&gt;
                 </code></pre>
                 <p>DDModal được xây dựng trên nền tảng Jquery và Bootstrap nên để có thể sử dụng DDModal yêu cầu hệ
                     thống phải được tích hợp Jquery, JqueryUI và Bootstrap.
@@ -377,7 +377,56 @@
     &lt;/ddmodal&gt;
                 </code></pre>
                 <br/>
-                <h3 id="header7">7. Selector và cách định đường dẫn</h3>
+                <h3 id="header7">7. Custom Configs</h3>
+                <p>Bắt đầu từ phiên bản 1.5 DDModal hỗ trợ người dùng có thể thay đổi dễ dàng các config của thư viện thông qua cú pháp: </p>
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    DDModalConfig.setConfigs({
+        "Key" : "Value",
+    })
+                </code></pre>
+                Danh sách các key config:
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Key</th>
+                            <th scope="col">Default value</th>
+                            <th scope="col">Ý nghĩa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>BOOTSTRAPVER</td>
+                            <td>4</td>
+                            <td>Mặc định DDModal sẽ hỗ trợ bootstrap 4. Nếu bạn muốn dùng nó với bootstrap 3 hãy thay đổi giá trị này thành 3</td>
+                        </tr>
+                        <tr>
+                            <td>ROOTPATH</td>
+                            <td>/</td>
+                            <td>Khi bạn khai báo đường dẫn của 1 file ở mdinclude, mặc định đường dẫn đó sẽ được DDModal đọc từ thư mục root của trang web. Bạn có thể sử dụng Key này để thay đổi đường dẫn bắt đầu đọc của mdinclude này</td>
+                        </tr>
+                        <tr>
+                            <td>FILEFORMAT</td>
+                            <td>[".html",".xhtml",".xml",".php",".txt",".asp",".aspx",".jsp",".csp",".wml"]</td>
+                            <td>Hiện tại mdinclude chỉ hỗ trợ đọc các định dạng file trong default value. Bạn có thể tùy biến thêm các loại file ddmodal sẽ include vào content bằng Key này</td>
+                        </tr>
+                        <tr>
+                            <td>SYMBOLTAGINCLUDE</td>
+                            <td>::</td>
+                            <td>Khi sử dụng mdinclude để đọc một thành phần nào đó từ 1 file, mặc định hiện tại chúng ta sẽ phải khai báo đường dẫn file và selector của element cần đọc bằng ký hiệu "::" . Trong một số hệ thống có thể ký hiệu này sẽ trùng lắp với một tính năng khác, bạn có thể thay đổi giá trị này bằng Key SYMBOLTAGINCLUDE</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/>
+                Ví dụ: Tôi muốn config lại giá trị bootstrap version tôi sử dụng trong hệ thống là 3 và rootpath để mdinclude đọc file là từ yourwebdomain.com/home thì tôi sẽ viết đoạn script như bên dưới:
+                <pre class="alert alert-info"><code class="language-html container" data-lang="html">
+    &lt;script&gt;
+        DDModalConfig.setConfigs({
+            "BOOTSTRAPVER" : "3",
+            "ROOTPATH" : "/home/"
+        })
+    &lt;/script&gt;
+                </code></pre>
+                <p><b>Note: </b></p>
                 <p>Attribute mdinclude của DDModal cho phép bạn định nghĩa selector của thành phần hoặc đường dẫn đến file nội dung sẽ được include vào nội dung của modal body. 
                     Để sử dụng hiệu quả và đúng cách các attribute này bạn nên hiểu được cách DDModal sẽ đọc hiểu chúng.</p>
                 <b>MODAL</b>
@@ -391,11 +440,6 @@
                     Ví dụ domain của bạn là <i>localhost:8080/mypage</i> thì DDModal sẽ render ra đường dẫn là <i>localhost:8080/mypage/content.html</i></p>
                 <p>Nếu bạn thắc mắc tại sao lại quy ước như vậy thì lý do là để DDModal có thể tích hợp trong mọi hệ thống và mọi nơi trong hệ thống. 
                     Vì có những công nghệ sẽ định nghĩa giá trị cho đường dẫn khác nhau và hơn hết tôi không thể biết được bạn sẽ đặt DDModal vào thư mục nào trong hệ thống của bạn.</p>
-                <p>Tuy nhiên, DDModal hướng đến sự customize tối đa cho người sử dụng nên giá trị root của website hoàn toàn dễ dàng thay đổi nếu bạn muốn. 
-                    Tôi đặt giá trị này là một costant tên <b>ROOTPATH</b> trong ddmodal.js, bạn hoàn toàn có thể mở ddmodal.js ra và sửa ngay thành giá trị bạn mong muốn một cách dễ dàng và nhanh chóng, 
-                    theo luồng xử lý thì khi DDModal gọi đến file nó sẽ gọi đến đường dẫn có giá trị là ROOTPATH + Giá trị của mdinclude. 
-                    Việc cho phép dễ dàng thay đổi ROOTPATH có thể sẽ giúp bạn tránh được các lỗi do config url đặc biệt trong hệ thống bạn và thậm chí giúp bạn có thể khai báo cho DDModal đọc được file từ một địa chỉ bên ngoài.</p>
-                <p>Hiện tại DDModal sẽ đọc được url các file có định dạng <b><i>html, xhtml, xml, php, txt, asp, jsp, csp, wml</i></b> và giống như ROOTPATH bạn có thể mở rộng các định dạng này bằng cách chỉnh sửa giá trị của <b>FILEFORMAT</b> trong ddmodal.js</p>
                 <br/>
                 <h3 id="header8">8. UI Options</h3>
                 <p>Về cơ bản khi khai báo một thẻ &lt;ddmodal&gt; hệ thống sẽ tự render lên một Modal với nội dung các thẻ tương tự như Modal của Boostrap:</p>
