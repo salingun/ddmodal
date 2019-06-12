@@ -223,12 +223,12 @@
                     form4 của trang vào modal-body trong trang index.html
                 </p>
                 <ddmodal id="myModal3" bttype="button" btlabel="Try it now!" mdtitle="Load anotherpage's tag"
-                    mdinclude="sample/content2.html #form4"></ddmodal>
+                    mdinclude="sample/content2.html::#form4"></ddmodal>
                 <br /><br />
                 <i>index.html</i>
                 <pre class="alert alert-info"><code class="language-html container" data-lang="html">
     &lt;!-- DDModal Tag --&gt;
-    &lt;ddmodal id="myModal2" bttype="button" btlabel="Load anotherpage" mdinclude="content2.html #form4"&gt;&lt;/ddmodal&gt;
+    &lt;ddmodal id="myModal2" bttype="button" btlabel="Load anotherpage" mdinclude="content2.html::#form4"&gt;&lt;/ddmodal&gt;
                 </code></pre>
                 <i>content2.html</i>
                 <pre class="alert alert-info"><code class="language-html container" data-lang="html">
@@ -314,7 +314,7 @@
     &lt;!-- Custom button --&gt;
     &lt;button class="btn btn-success' data-toggle="modal" data-target="#myModal4"&gt;&lt;/button&gt;
     &lt;!-- DDModal Tag --&gt;
-    &lt;ddmodal id="myModal4" mdinclude="content2.html #sample-content"&gt;&lt;/ddmodal&gt;
+    &lt;ddmodal id="myModal4" mdinclude="content2.html::#sample-content"&gt;&lt;/ddmodal&gt;
                 </code></pre>
                 <b id="header5-2">MODAL</b>
                 <p>Modal là thành phần chính của DDModal. Đối với button bạn có thể không khai báo trong thẻ &lt;ddmodal&gt; nhưng với modal thì nhất định phải có. 
@@ -368,12 +368,12 @@
                 <p>DDModal hỗ trợ bạn đơn giản hóa việc tạo nên 1 popup modal có thể di chuyển trong trang như một cửa sổ windows (draggable). 
                     Những việc bạn cần làm để setup chuyện này chỉ đơn giản là khai báo thêm một attribute có tên draggable trong thẻ &lt;ddmodal&gt;</p>
                 <ddmodal id="myModal4" bttype="button" btlabel="Try it now!" mdtitle="Draggable Modal"
-                    mdinclude="sample/content2.html #sample-content" draggable></ddmodal>
+                    mdinclude="sample/content2.html::#sample-content" draggable></ddmodal>
                 <br/><br/>
                 <pre class="alert alert-info"><code class="language-html container" data-lang="html">
     &lt;!-- DDModal Draggable --&gt;
     &lt;ddmodal id="myModal4" bttype="button" btlabel="Draggable Modal" 
-            mdtitle="Draggable Modal" mdinclude="content2.html #sample-content" draggable&gt;
+            mdtitle="Draggable Modal" mdinclude="content2.html::#sample-content" draggable&gt;
     &lt;/ddmodal&gt;
                 </code></pre>
                 <br/>
@@ -474,20 +474,20 @@
                 <p>Với các class được đưa vào btclass thì DDModal sẽ đưa các class này vào class của thẻ &lt;button&gt; trên giao diện. 
                     Ví dụ: Khi bạn khai báo btclass="btn btn-success btn-lg" thì DDModal sẽ đem vào thẻ class của thẻ button thành &lt;button class="btn btn-success btn-lg"&gt;</p>
                 <ddmodal id="myModal5-1" bttype="button" btlabel="Large Button" btclass="btn btn-success btn-lg"
-                 mdtitle="Customs Button UI" mdinclude="sample/content2.html #sample-content" draggable></ddmodal>
+                 mdtitle="Customs Button UI" mdinclude="sample/content2.html::#sample-content" draggable></ddmodal>
                 <ddmodal id="myModal5-2" bttype="button" btlabel="Medium Button" btclass="btn btn-warning"
-                 mdtitle="Customs Button UI" mdinclude="sample/content2.html #sample-content" draggable></ddmodal>
+                 mdtitle="Customs Button UI" mdinclude="sample/content2.html::#sample-content" draggable></ddmodal>
                  <ddmodal id="myModal5-3" bttype="button" btlabel="Small Button" btclass="btn btn-danger btn-sm"
-                 mdtitle="Customs Button UI" mdinclude="sample/content2.html #sample-content" draggable></ddmodal>
+                 mdtitle="Customs Button UI" mdinclude="sample/content2.html::#sample-content" draggable></ddmodal>
                 <br/><br/>
                 <pre class="alert alert-info"><code class="language-html container" data-lang="html">
     &lt;!-- Customs Button UI --&gt;
     &lt;ddmodal id="myModal5-1" bttype="button" btlabel="Customs Button UI" btclass="btn btn-success btn-lg" 
-            mdtitle="Customs Button UI" mdinclude="content2.html #sample-content" draggable&gt;
+            mdtitle="Customs Button UI" mdinclude="content2.html::#sample-content" draggable&gt;
     &lt;ddmodal id="myModal5-2" bttype="button" btlabel="Customs Button UI" btclass="btn btn-warning btn-lg" 
-            mdtitle="Customs Button UI" mdinclude="content2.html #sample-content" draggable&gt;
+            mdtitle="Customs Button UI" mdinclude="content2.html::#sample-content" draggable&gt;
     &lt;ddmodal id="myModal5-3" bttype="button" btlabel="Customs Button UI" btclass="btn btn-danger btn-sm" 
-            mdtitle="Customs Button UI" mdinclude="content2.html #sample-content" draggable&gt;
+            mdtitle="Customs Button UI" mdinclude="content2.html::#sample-content" draggable&gt;
     &lt;/ddmodal&gt;
                 </code></pre>
                 <p>Xem thêm Document về Button của Bootstrap để áp dụng: <a href="https://getbootstrap.com/docs/4.3/components/buttons/">Boostrap Button Document</a></p>
@@ -575,42 +575,42 @@
                 </table>    
                 <p>Ví dụ:</p>
                 <ddmodal id="myModal6" btlabel="Primary" btclass="btn btn-primary"
-                mdtitle="Primary Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-primary"></ddmodal>
+                mdtitle="Primary Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-primary"></ddmodal>
                 <ddmodal id="myModal7" btlabel="Secondary" btclass="btn btn-secondary"
-                mdtitle="Secondary Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-secondary"></ddmodal>
+                mdtitle="Secondary Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-secondary"></ddmodal>
                 <ddmodal id="myModal8" btlabel="Success" btclass="btn btn-success"
-                mdtitle="Success Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-success"></ddmodal>
+                mdtitle="Success Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-success"></ddmodal>
                 <ddmodal id="myModal9" btlabel="Danger" btclass="btn btn-danger"
-                mdtitle="Danger Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-danger"></ddmodal>
+                mdtitle="Danger Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-danger"></ddmodal>
                 <ddmodal id="myModal10" btlabel="Warning" btclass="btn btn-warning"
-                mdtitle="Warning Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-warning"></ddmodal>
+                mdtitle="Warning Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-warning"></ddmodal>
                 <ddmodal id="myModal11" btlabel="Info" btclass="btn btn-info"
-                mdtitle="Info Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-info"></ddmodal>
+                mdtitle="Info Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-info"></ddmodal>
                 <ddmodal id="myModal12" btlabel="Dark" btclass="btn btn-dark"
-                mdtitle="Dark Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-dark"></ddmodal>
+                mdtitle="Dark Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-dark"></ddmodal>
                 <br/><br/>
                 <pre class="alert alert-info"><code class="language-html container" data-lang="html">
     &lt;!-- Primary --&gt;
     &lt;ddmodal id="myModal6" btlabel="Primary" btclass="btn btn-primary"
-    mdtitle="Primary Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-primary"&gt;&lt;/ddmodal&gt;
+    mdtitle="Primary Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-primary"&gt;&lt;/ddmodal&gt;
     &lt;!-- Secondary --&gt;
     &lt;ddmodal id="myModal7" btlabel="Secondary" btclass="btn btn-secondary"
-    mdtitle="Secondary Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-secondary"&gt;&lt;/ddmodal&gt;
+    mdtitle="Secondary Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-secondary"&gt;&lt;/ddmodal&gt;
     &lt;!-- Success --&gt;
     &lt;ddmodal id="myModal8" btlabel="Success" btclass="btn btn-success"
-    mdtitle="Success Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-success"&gt;&lt;/ddmodal&gt;
+    mdtitle="Success Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-success"&gt;&lt;/ddmodal&gt;
     &lt;!-- Danger --&gt;
     &lt;ddmodal id="myModal9" btlabel="Danger" btclass="btn btn-danger"
-    mdtitle="Danger Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-danger"&gt;&lt;/ddmodal&gt;
+    mdtitle="Danger Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-danger"&gt;&lt;/ddmodal&gt;
     &lt;!-- Warning --&gt;
     &lt;ddmodal id="myModal10" btlabel="Warning" btclass="btn btn-warning"
-    mdtitle="Warning Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-warning"&gt;&lt;/ddmodal&gt;
+    mdtitle="Warning Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-warning"&gt;&lt;/ddmodal&gt;
     &lt;!-- Info --&gt;
     &lt;ddmodal id="myModal11" btlabel="Info" btclass="btn btn-info"
-    mdtitle="Info Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-info"&gt;&lt;/ddmodal&gt;
+    mdtitle="Info Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-info"&gt;&lt;/ddmodal&gt;
     &lt;!-- Dark --&gt;
     &lt;ddmodal id="myModal12" btlabel="Dark" btclass="btn btn-dark"
-    mdtitle="Dark Modal" mdinclude="sample/content2.html #sample-content" mdclass="md-header-dark"&gt;&lt;/ddmodal&gt;               
+    mdtitle="Dark Modal" mdinclude="sample/content2.html::#sample-content" mdclass="md-header-dark"&gt;&lt;/ddmodal&gt;               
                 </code></pre>
                 <p>
                     Ngoài các class trên bạn có thể tự định nghĩa class của riêng mình chỉ cần đặt tên theo đúng quy ước <b><i>md-header-tênclass</i></b> hoặc <b><i>md-body-tênclass</i></b> và đưa vào mdclass thì DDModal sẽ tự động hiểu và đưa class vào đúng vị trí của nó.
@@ -650,14 +650,14 @@
                     </tbody>
                 </table>
                 <p>Ví dụ</p>
-                <ddmodal id="myModal13" btlabel="Extra large modal" mdtitle="Extra large modal" mdinclude="sample/content2.html #sample-content" mdclass="modal-xl"></ddmodal>
-                <ddmodal id="myModal14" btlabel="Large modal" mdtitle="Large modal" mdinclude="sample/content2.html #sample-content" mdclass="modal-lg"></ddmodal>
-                <ddmodal id="myModal15" btlabel="Small modal" mdtitle="Small modal" mdinclude="sample/content2.html #sample-content" mdclass="modal-sm"></ddmodal>
+                <ddmodal id="myModal13" btlabel="Extra large modal" mdtitle="Extra large modal" mdinclude="sample/content2.html::#sample-content" mdclass="modal-xl"></ddmodal>
+                <ddmodal id="myModal14" btlabel="Large modal" mdtitle="Large modal" mdinclude="sample/content2.html::#sample-content" mdclass="modal-lg"></ddmodal>
+                <ddmodal id="myModal15" btlabel="Small modal" mdtitle="Small modal" mdinclude="sample/content2.html::#sample-content" mdclass="modal-sm"></ddmodal>
                 <br/><br/>
                 <pre class="alert alert-info"><code class="language-html container" data-lang="html">
-    &lt;ddmodal id="myModal13" btlabel="Extra large modal" mdtitle="Extra large modal" mdinclude="sample/content2.html #sample-content" mdclass="modal-xl"&gt;&lt;/ddmodal&gt;
-    &lt;ddmodal id="myModal14" btlabel="Large modal" mdtitle="Large modal" mdinclude="sample/content2.html #sample-content" mdclass="modal-lg"&gt;&lt;/ddmodal&gt;
-    &lt;ddmodal id="myModal15" btlabel="Small modal" mdtitle="Small modal" mdinclude="sample/content2.html #sample-content" mdclass="modal-sm"&gt;&lt;/ddmodal&gt;   
+    &lt;ddmodal id="myModal13" btlabel="Extra large modal" mdtitle="Extra large modal" mdinclude="sample/content2.html::#sample-content" mdclass="modal-xl"&gt;&lt;/ddmodal&gt;
+    &lt;ddmodal id="myModal14" btlabel="Large modal" mdtitle="Large modal" mdinclude="sample/content2.html::#sample-content" mdclass="modal-lg"&gt;&lt;/ddmodal&gt;
+    &lt;ddmodal id="myModal15" btlabel="Small modal" mdtitle="Small modal" mdinclude="sample/content2.html::#sample-content" mdclass="modal-sm"&gt;&lt;/ddmodal&gt;   
                 </code></pre>
                 <br/>
                 <h3 id="header9">9. Handle Error</h3>
