@@ -89,14 +89,14 @@ function ElementButtonClass(bttarget, bttype, btclick, btlabel, btclass) {
     this.getElementButtonHTML = function () {
         var html = '<button></button>';
         if (this.bttype || this.btclick !== "#" || this.btlabel || this.btclass) {
-            if (this.bttype === "button"){
-                html = '<button type="button" onclick="' + this.btclick + '" class="'+ this.btclass +' btn-ddmodal" data-toggle="modal" data-target="#' + this.bttarget + '">';
-                html +=           this.btlabel;
-                html += '</button>';
-            } else {
+            if (this.bttype === "link"){
                 html = '<a type="button" onclick="' + this.btclick + '" class="'+ this.btclass +' btn-ddmodal" data-toggle="modal" data-target="#' + this.bttarget + '">';
                 html +=         this.btlabel;
                 html += '</a>';
+            } else {
+                html = '<button type="button" onclick="' + this.btclick + '" class="'+ this.btclass +' btn-ddmodal" data-toggle="modal" data-target="#' + this.bttarget + '">';
+                html +=           this.btlabel;
+                html += '</button>';
             }
         }
         return html;
